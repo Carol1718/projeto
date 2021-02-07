@@ -1,0 +1,66 @@
+package br.senai.sp.jandira.Primeiroprojeto;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+
+public class App {
+	
+	public static void main(String [] args) {
+		
+		char[] sexo = new char[2];
+		sexo[0] = 'M';
+		sexo [1] = 'F';
+	
+	LocalDate dataNascimento = LocalDate.of(2003, 2, 2);
+	System.out.println(dataNascimento);
+	Period idade = Period.between(LocalDate.of(2003, 2, 2), LocalDate.now());
+	System.out.println(idade.getYears());
+	
+	// Sexo Masculino de acordo com a idade 
+	 
+	
+	
+	}
+}
+
+	
+	
+
+		 
+	 
+		 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+

@@ -1,0 +1,109 @@
+package br.senai.sp.jandira.Primeiroprojeto.model;
+
+import java.time.LocalDate;
+
+public class Cliente {
+
+	 private String name;
+	 private LocalDate datadenascimento;
+	 public char sexo;
+	 private double peso;
+	 private double altura;
+	 private int niveldeatividade;
+	 
+public void setName(String name) {
+   this.name = name;
+}
+
+public String getName() {
+	   return this.name;
+	}
+
+public void setDatadenascimento(LocalDate datadenascimento) {
+	this.datadenascimento = datadenascimento;
+}
+
+public LocalDate getDatadenascimento() {
+	   return this.datadenascimento;
+}
+
+public void setSexo(char sexo ) {
+	this.sexo = sexo;
+}
+
+public char getSexo() {
+	   return this.sexo;
+}
+
+public void setPeso(double peso ) {
+	this.peso = peso;
+}
+
+public double getPeso() {
+	   return this.peso;
+}
+
+public void setAltura(double altura ) {
+	this.altura = altura;
+}
+
+public double getaltura() {
+	   return this.altura;
+}
+
+public void setNiveldeatividade(int niveldeatividade ) {
+	this.niveldeatividade = niveldeatividade;
+}
+
+public int getNiveldeativade() {
+	   return this.niveldeatividade;
+}
+
+public double calcularImc() {
+	return this.peso/ this.altura * this.altura;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
