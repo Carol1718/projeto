@@ -1,24 +1,28 @@
 package br.senai.sp.jandira.Primeiroprojeto;
 
 import java.time.LocalDate;
-import java.time.Period;
+
 import br.senai.sp.jandira.Primeiroprojeto.model.Cliente;
+import br.senai.sp.jandira.Primeiroprojeto.model.NivelAtividade;
 
 public class App {
 	
 	public static void main(String [] args) {
 		
-	
-	LocalDate dataNascimento = LocalDate.of(2003, 2, 2);
-	System.out.println(dataNascimento);
-	Period idade = Period.between(LocalDate.of(2003, 2, 2), LocalDate.now());
-	System.out.println(idade.getYears());
-	
-	// Sexo Masculino de acordo com a idade 
-	 
-  
-   
-	
+		 Cliente dadosCarol = new Cliente();
+		 
+		 dadosCarol.setName("Carol");
+	     dadosCarol.setSexo("Feminino");
+	     dadosCarol.setPeso(59);
+         dadosCarol.setAltura(1.60);
+         dadosCarol.setDatadenascimento(LocalDate.of(2003, 3, 31));
+	     dadosCarol.setNiveldeatividade(NivelAtividade.LEVE);
+	     System.out.println("***" + dadosCarol.getName());
+	     System.out.println("IMC:" + dadosCarol.getImc());
+	     System.out.println("Idade:" + dadosCarol.getIdade());
+	     System.out.println("Situação:" + dadosCarol.getStatusImc());
+	     System.out.println("***" + dadosCarol.getNcd1());
+
 	}
 }
 

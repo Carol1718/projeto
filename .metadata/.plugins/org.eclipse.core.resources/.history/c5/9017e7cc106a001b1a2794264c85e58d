@@ -1,0 +1,150 @@
+package br.senai.sp.jandira.Primeiroprojeto.model;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+public class Cliente {
+
+	 private String name;
+	 private LocalDate datadenascimento;
+	 private String sexo;
+	 private double peso;
+	 private double altura;
+	 private int niveldeatividade;
+	 
+public void setName(String name) {
+   this.name = name;
+}
+
+public String getName() {
+	   return this.name;
+	}
+
+public void setDatadenascimento(LocalDate datadenascimento) {
+	this.datadenascimento = datadenascimento;
+}
+
+public LocalDate getDatadenascimento() {
+	   return this.datadenascimento;
+}
+
+public void setSexo(String sexo ) {
+	this.sexo = sexo;
+	
+}
+
+public String getSexo() {
+	   return this.sexo;
+}
+
+public void setPeso(double peso ) {
+	this.peso = peso;
+}
+
+public double getPeso() {
+	   return this.peso;
+}
+
+public void setAltura(double altura ) {
+	this.altura = altura;
+}
+
+public double getaltura() {
+	   return this.altura;
+}
+
+public void setNiveldeatividade(int niveldeatividade ) {
+	this.niveldeatividade = niveldeatividade;
+}
+
+public int getNiveldeativade() {
+	   return this.niveldeatividade;
+}
+
+//* Obter a idade de nascimento
+
+public int getIdade() {
+  LocalDate hoje = LocalDate.now();
+ Period periodo = Period.between(this.datadenascimento, hoje);
+ return periodo.getYears();
+}
+
+//*Calcular IMC da pessoas
+public double getImc() {
+	return this.peso/(this.altura* this.altura);
+	
+}
+
+public String getStatusImc() {
+	if (this.getImc() < 18.5) {
+		return "Abaixo do peso";
+	} else if (this.getImc() > 18.5 && this.getImc() < 25) {
+		return "Peso Ideal";
+	} else if (this.getImc() > 25 && this.getImc() < 30) {
+		return "Levemente acima do peso";
+	} else if (this.getImc() > 30 && this.getImc() < 35) {
+		return "Obesidade grau II";
+	} else if (this.getImc() > 35 && this.getImc() < 40) {
+		return "Obesidade grau II";
+	} else {
+		return "Obesidade Grau III";
+	}
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
