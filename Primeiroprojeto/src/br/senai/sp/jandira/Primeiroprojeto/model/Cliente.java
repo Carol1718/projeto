@@ -10,7 +10,7 @@ public class Cliente {
 	 private String sexo;
 	 private double peso;
 	 private double altura;
-	 private String nivelAtividade;
+	 private double nivelAtividade;
 	 
 public void setName(String name) {
    this.name = name;
@@ -21,7 +21,7 @@ public String getName() {
 	}
 
 public void setDatadenascimento(LocalDate datadenascimento) {
-	this.dataDeNascimento = datadenascimento;
+		this.dataDeNascimento = datadenascimento;
 }
 
 public LocalDate getDatadenascimento() {
@@ -53,11 +53,11 @@ public double getaltura() {
 	   return this.altura;
 }
 
-public void setNiveldeatividade(String niveldeatividade ) {
+public void setNiveldeatividade(double niveldeatividade ) {
 	this.nivelAtividade = niveldeatividade;
 }
 
-public String getNiveldeativade() {
+public double getNiveldeativade() {
 	   return this.nivelAtividade;
 }
 
@@ -91,66 +91,67 @@ public String getStatusImc() {
 	}
 }
 
-// NCD DO HOMEM
-
+//Calcular Ncd Homem
 public double getNcd() {
-	double ncd = 0;
-	
-	if (this.sexo == "M") {
-		
-		 // Com base na idade
-	if (this.getIdade() >= 18 && this.getIdade() < 30) {
-		ncd=15.3 * this.peso + 679;
-	} else if (this.getIdade() >= 31 && this.getIdade() <= 60) {
-		ncd= 11.6 * this.peso + 879;
-	} else {
-		ncd= 13.5 * this.peso + 497;
-	}
-}
-	
-	// Com base na atividade fisica
-	if (this.nivelAtividade == NivelAtividade.LEVE1) {
-		 ncd *= 1.5;
-	} else if (this.nivelAtividade == NivelAtividade.MODERADO1) {
-		ncd *= 1.8;
-	} else if (this.nivelAtividade == NivelAtividade.INTENSO1) {
-		ncd *= 2.1;
-}
- return ncd;
-	
-}
-//NCD DA MULHER
+	  double ncd = 0;
+	  
+	  if (this.sexo == "Masculino") {
+		 // Em relação a idade
+	  if(this.getIdade() >= 18 && this.getIdade() <30) {
+		  ncd = 15.3 * this.peso + 679;
+	  } else if (this.getIdade() >=31 && this.getIdade() <61) {
+		  ncd = 11.6 + this.peso + 879;
+	  } else {
+		   ncd = 13.5 * this.peso + 489; 
+	  }
 
-public double getNcd1() {
-	double ncd = 0;
-	
-	if (this.sexo == "F") {
-		
-		 // Com base na idade
-	if (this.getIdade() >= 18 && this.getIdade() < 30) {
-		ncd=14.7 * this.peso + 496 ;
-	} else if (this.getIdade() >= 31 && this.getIdade() <= 60) {
-		ncd= 8.7 * this.peso + 829;
-	} else {
-		ncd= 10.5 * this.peso + 596;
-	}
-}
-	
-	// Com base na atividade fisica
-	if (this.nivelAtividade == NivelAtividade.LEVE) {
-		 ncd *= 1.6;
-	} else if (this.nivelAtividade == NivelAtividade.MODERADO) {
-		ncd *= 1.6;
-	} else if (this.nivelAtividade == NivelAtividade.INTENSO) {
-		ncd *= 1.8;
-
-
-	}
-	return ncd;
+	  
+	  if (this.nivelAtividade == NivelAtividade.LEVE1) {
+		  ncd *= 1.5;
+	  } else if (this.nivelAtividade == NivelAtividade.MODERADO1) {
+		  ncd *= 1.8;
+	  } else if (this.nivelAtividade == NivelAtividade.INTENSO1) {
+		 ncd *= 2.1; 
+	  }
+		  
 }
 
-
+if (this.sexo == "Feminino") {
+	 // Em relação a idade
+ if(this.getIdade() >= 18 && this.getIdade() < 30) {
+	  ncd = 14.7 * this.peso + 496;
+ } else if (this.getIdade() >=31 && this.getIdade() <=61) {
+	  ncd = 8.7 + this.peso + 829;
+ } else {
+	   ncd = 10.5 * this.peso + 596; 
+ }
+ 
+ 
+ if (this.nivelAtividade == NivelAtividade.LEVE1) {
+	  ncd *= 1.6;
+ } else if (this.nivelAtividade == NivelAtividade.MODERADO1) {
+	  ncd *= 1.6;
+ } else if (this.nivelAtividade == NivelAtividade.INTENSO) {
+	 ncd *= 1.8; 
+ }
+	  
+ }
+    return ncd;
+    
 }
+	  
+}
+
+   
+   
+   
+   
+   
+   
+
+
+
+
 
 
 

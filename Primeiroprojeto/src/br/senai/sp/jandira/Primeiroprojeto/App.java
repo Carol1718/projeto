@@ -1,6 +1,8 @@
 package br.senai.sp.jandira.Primeiroprojeto;
 
 import java.time.LocalDate;
+import br.com.Primeiroprojeto.gui.FrameTela;
+
 
 import br.senai.sp.jandira.Primeiroprojeto.model.Cliente;
 import br.senai.sp.jandira.Primeiroprojeto.model.NivelAtividade;
@@ -9,19 +11,24 @@ public class App {
 	
 	public static void main(String [] args) {
 		
-		 Cliente dadosCarol = new Cliente();
-		 
-		 dadosCarol.setName("Carol");
-	     dadosCarol.setSexo("Feminino");
-	     dadosCarol.setPeso(59);
-         dadosCarol.setAltura(1.60);
-         dadosCarol.setDatadenascimento(LocalDate.of(2003, 3, 31));
-	     dadosCarol.setNiveldeatividade(NivelAtividade.LEVE);
-	     System.out.println("***" + dadosCarol.getName());
-	     System.out.println("IMC:" + dadosCarol.getImc());
-	     System.out.println("Idade:" + dadosCarol.getIdade());
-	     System.out.println("Situação:" + dadosCarol.getStatusImc());
-	     System.out.println("***" + dadosCarol.getNcd1());
+//		 Cliente carol = new Cliente();
+//		 
+//		carol.setAltura(1.56);
+//		carol.setPeso(60);
+//		carol.setDatadenascimento(LocalDate.of(2002, 3, 31));
+//		carol.getNcd();
+//		carol.setSexo("Feminino");
+//		carol.setNiveldeatividade(NivelAtividade.LEVE);
+//		System.out.println(carol.getIdade());		
+//		System.out.println(carol.getSexo());	
+//		System.out.println(carol.getIdade());	
+//		System.out.println(carol.getNcd());	
+//		System.out.println(carol.getImc());	
+//		System.out.println(carol.getStatusImc());	
+		
+		FrameTela  tela = new FrameTela();
+		tela.criarTela();
+		
 
 	}
 }
