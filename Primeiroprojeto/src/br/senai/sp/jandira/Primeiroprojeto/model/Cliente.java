@@ -7,6 +7,7 @@ public class Cliente {
 
 	 private String name;
 	 private LocalDate dataDeNascimento;
+	 
 	 private String sexo;
 	 private double peso;
 	 private double altura;
@@ -138,6 +139,11 @@ if (this.sexo == "Feminino") {
  }
     return ncd;
     
+}
+
+public void setNiveldeatividade(String string) {
+
+	
 }
 	  
 }

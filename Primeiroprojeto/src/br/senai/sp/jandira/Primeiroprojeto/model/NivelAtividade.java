@@ -13,6 +13,10 @@ public class NivelAtividade {
 	public static final double LEVE1 = (1.5);
 	public static final double MODERADO1 = (1.8);
 	public static final double INTENSO1 = (2.1);
+	public static String getSelectedItem() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }

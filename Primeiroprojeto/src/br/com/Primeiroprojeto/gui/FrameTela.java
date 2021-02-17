@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
+import javax.naming.ldap.Rdn;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -44,6 +45,8 @@ public class FrameTela {
 	 JTextField textNome = new JTextField();
 	 textNome.setBounds(120, 20, 150, 30);
 	 
+	
+	 
 	 // data de nascimento
 	 
 	 JLabel labelNascimento = new JLabel ();
@@ -53,6 +56,7 @@ public class FrameTela {
 	 
 	 JTextField textNascimento = new JTextField();
 	 textNascimento.setBounds(170, 70, 90, 30);
+	 
 	 
       // sexo
 	 
@@ -103,7 +107,7 @@ public class FrameTela {
 	 
 	 JPanel container = new JPanel();
 	 
-	 box.addItem("Qual seu nível de Atividade?");
+
 	 box.addItem("Leve");
 	 box.addItem("Moderado");
 	 box.addItem("Intenso");
@@ -187,6 +191,8 @@ public class FrameTela {
     
     telaCliente.getContentPane().add(labelSexo);
    
+  
+    
     telaCliente.getContentPane().add(textNascimento);
     
     telaCliente.getContentPane().add(labelNascimento);
@@ -201,58 +207,71 @@ public class FrameTela {
     
  // *** Ouvintes de açoes/eventos
  // *** Ouvintes de açoes/eventos
- buttonCalcular.addActionListener(new ActionListener() {
+    buttonCalcular.addActionListener(new ActionListener() {
     	
-    	@Override
-		public void actionPerformed(ActionEvent e) {
-			
-			
-			Cliente r2 = new Cliente();
-			
-			r2.setName(textNome.getText());
-			r2.setAltura(Double.parseDouble(textAltura.getText()));
-			r2.setPeso(Double.parseDouble(textPeso.getText()));
-			r2.setDatadenascimento(LocalDate.of(Integer.parseInt(textNascimento.getText()),Integer.parseInt(texto+-);
-	        
-			if (radioFeminino.isSelected() ) {
-				String generoSelecionado = "F";
-				r2.setSexo(generoSelecionado);
-			}
-				else if (radioMasculino.isSelected() ) {
-					String generoSelecionado = "M";
-					r2.setSexo(generoSelecionado);
-			}
-			
-			r2.setAtividade(NivelAtividade.().toString());
-			labelNome.setText("Nome: " + textNome.getText());
-			labelNascimento.setText("Idade: " + r2.getIdade());
-			labelImc.setText("Imc:" + String.format("%.2f", r2.getImc()));
-			labelImc.setText("Ncd:" + String.format("%.2f", r2.getNcd()));
-    	}
-	});
+   	 @Override
+   		public void actionPerformed(ActionEvent e) {
+   			
+   			
+   			Cliente aluno = new Cliente();
+   			
+   			aluno.setName(textNome.getText());
+   			aluno.setAltura(Double.parseDouble(textAltura.getText()));
+   			aluno.setPeso(Double.parseDouble(textPeso.getText()));
+   			aluno.setDatadenascimento(LocalDate.of(2000, 07, 03));
+   			aluno.setNiveldeatividade(NivelAtividade.getSelectedItem());
+   	
+   			labelImc.setText("IMC: " + String.valueOf(aluno.getImc()));
+   			labelNCD.setText("NCD: " + aluno.getIdade() +aluno.getPeso() + String.valueOf(aluno.getNcd()));
+   			
+   			
+   			if (radioFeminino.isSelected() ) {
+   				String generoSelecionado = "F";
+   				aluno.setSexo(generoSelecionado);
+   			}
+   				else if (radioMasculino.isSelected() ) {
+   					String generoSelecionado = "M";
+   					aluno.setSexo(generoSelecionado);
+   			}
+   			
+   	 
+   			aluno.setNiveldeatividade(NivelAtividade.getSelectedItem().toString());
+   			labelNome.setText("Nome: " + textNome.getText());
+   			labelNascimento.setText("Idade: " + aluno.getIdade());
+   			labelImc.setText("Imc:" + String.format("%.2f", aluno.getImc()));
+   			labelImc.setText("Ncd:" + String.format("%.2f", aluno.getNcd()));
+    }
+
+    });
     
-			// botão limpar
-			
-			buttonLimpar.addActionListener(new ActionListener() {	
-				@Override
-				public void actionPerformed(Action Event e) {
-					textNome.setText("");
-					textAltura.setText("");
-					textPeso.setText("");
-					textNascimento.setText("");
-					textAltura.setText("");
-					labelNome.setText("");
-					labelImc.setText("");
-					labelNCD.setText("");
-					labelAtividade.setText("");
-					
-				}
-
-					
-				});
-
-   }
+    //Botão limpar
+    
+    buttonLimpar.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			textNome.setText("");
+			textAltura.setText("");
+			textNascimento.setText("");
+			textPeso.setText("");
+			labelImc.setText("");
+			labelNCD.setText("");
+			labelAtividade.setText("Nenhuma Atividade");
+		}
+	});
+	}
 }
+    	
+    
+    
+    
+    
+		
+
+	
+    
+   	
+
     
 	
 	
