@@ -2,10 +2,7 @@ package br.senai.sp.jandira.Primeiroprojeto;
 
 import java.time.LocalDate;
 import br.com.Primeiroprojeto.gui.FrameTela;
-
-
 import br.senai.sp.jandira.Primeiroprojeto.model.Cliente;
-import br.senai.sp.jandira.Primeiroprojeto.model.NivelAtividade;
 
 public class App {
 	

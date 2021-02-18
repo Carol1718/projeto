@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 import javax.naming.ldap.Rdn;
@@ -19,11 +20,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import br.senai.sp.jandira.Primeiroprojeto.model.Cliente;
-import br.senai.sp.jandira.Primeiroprojeto.model.NivelAtividade;
+
 
 public class FrameTela {
 	
-	protected AbstractButton jFormattedTextDatadenascimento;
 
 	public void criarTela() {
 		
@@ -47,15 +47,15 @@ public class FrameTela {
 	 
 	
 	 
-	 // data de nascimento
+	 // idade
 	 
-	 JLabel labelNascimento = new JLabel ();
-	 labelNascimento.setText("Data de Nascimento: ");
-	 labelNascimento.setBounds(10, 70, 140, 30);
-	 labelNascimento.setFont(new Font ("Arial", Font.BOLD,13));
+	 JLabel labelIdade = new JLabel ();
+	 labelIdade.setText(" Idade: ");
+	 labelIdade.setBounds(10, 70, 50, 30);
+	 labelIdade.setFont(new Font ("Arial", Font.BOLD,13));
 	 
-	 JTextField textNascimento = new JTextField();
-	 textNascimento.setBounds(170, 70, 90, 30);
+	 JTextField textIdade = new JTextField();
+	 textIdade.setBounds(170, 70, 90, 30);
 	 
 	 
       // sexo
@@ -193,9 +193,9 @@ public class FrameTela {
    
   
     
-    telaCliente.getContentPane().add(textNascimento);
+    telaCliente.getContentPane().add(textIdade);
     
-    telaCliente.getContentPane().add(labelNascimento);
+    telaCliente.getContentPane().add(labelIdade);
     
     telaCliente.getContentPane().add(textNome);
   
@@ -214,36 +214,18 @@ public class FrameTela {
    			
    			
    			Cliente aluno = new Cliente();
-   			
-   			aluno.setName(textNome.getText());
-   			aluno.setAltura(Double.parseDouble(textAltura.getText()));
    			aluno.setPeso(Double.parseDouble(textPeso.getText()));
-   			aluno.setDatadenascimento(LocalDate.of(2000, 07, 03));
-   			aluno.setNiveldeatividade(NivelAtividade.getSelectedItem());
-   	
-   			labelImc.setText("IMC: " + String.valueOf(aluno.getImc()));
-   			labelNCD.setText("NCD: " + aluno.getIdade() +aluno.getPeso() + String.valueOf(aluno.getNcd()));
-   			
-   			
-   			if (radioFeminino.isSelected() ) {
-   				String generoSelecionado = "F";
-   				aluno.setSexo(generoSelecionado);
-   			}
-   				else if (radioMasculino.isSelected() ) {
-   					String generoSelecionado = "M";
-   					aluno.setSexo(generoSelecionado);
-   			}
-   			
-   	 
-   			aluno.setNiveldeatividade(NivelAtividade.getSelectedItem().toString());
-   			labelNome.setText("Nome: " + textNome.getText());
-   			labelNascimento.setText("Idade: " + aluno.getIdade());
-   			labelImc.setText("Imc:" + String.format("%.2f", aluno.getImc()));
-   			labelImc.setText("Ncd:" + String.format("%.2f", aluno.getNcd()));
-    }
+			aluno.setAltura(Double.parseDouble(textAltura.getText()));
+			aluno.setSexo(String.valueOf(radioMasculino.isSelected()?"Masculino":"Feminino"));
+			aluno.setIdade(Integer.parseInt(textIdade.getText()));
+			aluno.setNivelDeAtividade(String.valueOf(box.getSelectedItem().toString()));
+			
+			labelImc.setText("IMC: " + String.valueOf(aluno.getImc()));
+			labelNCD.setText("NCD: " + String.valueOf(aluno.getNcd()));
+		}
+	});
 
-    });
-    
+
     //Botão limpar
     
     buttonLimpar.addActionListener(new ActionListener() {
@@ -252,7 +234,7 @@ public class FrameTela {
 		public void actionPerformed(ActionEvent e) {
 			textNome.setText("");
 			textAltura.setText("");
-			textNascimento.setText("");
+			textIdade.setText("");
 			textPeso.setText("");
 			labelImc.setText("");
 			labelNCD.setText("");
